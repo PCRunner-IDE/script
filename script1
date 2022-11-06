@@ -1,0 +1,89 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+
+local Window = Library.CreateLib("Prison Life Gui", "DarkTheme")
+
+local Tab = Window:NewTab("player")
+local Section = Tab:NewSection("Local Player")
+Section:NewLabel("Walkspeed")
+Section:NewSlider("Walkspeed", "Walkspeed", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+Section:NewLabel("Jump Power")
+Section:NewSlider("JumpPower", "JumpPower", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+
+local Tab = Window:NewTab("Weapon")
+local Section = Tab:NewSection("Guns")
+Section:NewButton("Get All Weapons", "Get All The Guns", function()
+    for i,v in pairs(Workspace.Prison_ITEMS.giver:GetChildren()) do
+        lol = Workspace.Remote.ItemHandler:InvokeServer(v.ITEMPICKUP)
+        print(lol)
+        end
+        end)
+
+        local Section = Tab:NewSection("Mods")
+        Section:NewLabel("AK-47")
+        Section:NewButton("Mod The AK-47", "Mods", function()
+            local player = game:GetService("Players").LocalPlayer
+local gun = player.Backpack:FindFirstChild("AK-47")
+local sM = require(gun:FindFirstChild("GunStates"))
+sM["Damage"] = 40
+sM["MaxAmmo"] = 9999991
+sM["StoredAmmo"] = 9999991
+sM["FireRate"] = 0.05
+sM["AmmoPerClip"] = 9999991
+sM["Range"] = 5000
+sM["ReloadTime"] = 0.05
+sM["Bullets"] = 1
+sM["AutoFire"] = true
+end)
+
+Section:NewLabel("M9")
+Section:NewButton("Mod The M9", "Mods", function()
+    local player = game:GetService("Players").LocalPlayer
+local gun = player.Backpack:FindFirstChild("M9")
+local sM = require(gun:FindFirstChild("GunStates"))
+sM["Damage"] = 40
+sM["MaxAmmo"] = 9999991
+sM["StoredAmmo"] = 9999991
+sM["FireRate"] = 0.05
+sM["AmmoPerClip"] = 9999991
+sM["Range"] = 5000
+sM["ReloadTime"] = 0.05
+sM["Bullets"] = 1
+sM["AutoFire"] = true
+end)
+
+Section:NewLabel("Remington 870")
+Section:NewButton("Mod The M9", "Mods", function()
+    local player = game:GetService("Players").LocalPlayer
+local gun = player.Backpack:FindFirstChild("Remington 870")
+local sM = require(gun:FindFirstChild("GunStates"))
+sM["Damage"] = 40
+sM["MaxAmmo"] = 9999991
+sM["StoredAmmo"] = 9999991
+sM["FireRate"] = 0.05
+sM["AmmoPerClip"] = 9999991
+sM["Range"] = 5000
+sM["ReloadTime"] = 0.05
+sM["Bullets"] = 1
+sM["AutoFire"] = true
+end)
+
+local Tab = Window:NewTab("Custom Scripts")
+local Section = Tab:NewSection("Scripts")
+Section:NewButton("Prison Life Admin", "Admin script", function()
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/XTheMasterX/Scripts/Main/PrisonLife'),true))()
+end)
+Section:NewButton("Fly | E To Fly", "Press E To Fly", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/rFpi04KR"))()
+end)
+
+
+local Tab = Window:NewTab("Key Binds")
+local Section = Tab:NewSection("Binds")
+Section:NewKeybind("ToggleUI Key Bind", "KeybindInfo", Enum.KeyCode.Q, function()
+	Library:ToggleUI()
+end)
+
